@@ -86,3 +86,48 @@ int euclideAlgorithmIterative(int a,int b)
     }
     return a;
 }
+
+
+
+/***************************************
+ ***            QUESTION 5           ***
+ ***************************************/
+ 
+ int min_TAB(int aray[])
+{
+    int i = 0;
+    int small = aray[0];
+    while(aray[i]!=NULL)
+    {
+        if(aray[i]<small)
+        {
+            small = aray[i];
+        }
+        i++;
+    }
+
+}
+//Complexite O(n)
+ 
+ /***************************************
+ ***            QUESTION 6           ***
+ ***************************************/
+ 
+ void insertion_sort(int arr[], int length)
+{
+    int i;
+    int j;
+    int tmp;
+    for(i=1;i<length;i++)
+    {
+        while(j>0 && arr[j-1]>arr[j])
+        {
+            tmp = arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=tmp;
+            j--;
+        }
+    }
+}
+
+//Complexite O(n^2)

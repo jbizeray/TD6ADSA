@@ -31,5 +31,15 @@ int euclideAlgorithmRecursive(int,int);
 int euclideAlgorithmIterative(int,int);
 
 
+/***************************************
+ ***            QUESTION 5           ***
+ ***************************************/
+ int min_TAB(int aray[]);
+        
+ /***************************************
+ ***            QUESTION 6           ***
+ ***************************************/
+void insertion_sort(int arr[], int length);
+
 
 #endif /* Algorithm_hpp */
