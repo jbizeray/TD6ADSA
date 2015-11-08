@@ -42,22 +42,55 @@ int factorielleAlgorithmIterative(int n)
  ***************************************/
 int powerAlgorithmRecursive(int a,int b)
 {
-    if (b==0)
+    /*if (b==0)
         return 1;
     else
+        return a*powerAlgorithmRecursive(a, b-1);*/
+        
+    int i;
+    if (b==0)
+        return 1;
+    else if (b%2==0)
+    {
+        i = powerAlgorithmIterative(a,b/2);
+        return i*i;
+    }
+    else
+    {
         return a*powerAlgorithmRecursive(a, b-1);
+    }
 }
-//Complexity O(b)
+//Complexity O(log(b))
 
 int powerAlgorithmIterative(int a,int b)
 {
-    int out= 1;
+    /*int out= 1;
     while (b>0)
     {
         out=out*a;
         b--;
     }
-    return out;
+    return out;*/
+    int out= 1;
+    if(b%2==0)
+    {
+        b=b/2;
+        while (b>0)
+        {
+            out=out*a;
+            b--;
+        }
+        return out;
+    }
+    else
+    {
+        while (b>0)
+        {
+            out=out*a;
+            b--;
+        }
+        return out;
+    }
 }
 //Complexité O(b)
 
