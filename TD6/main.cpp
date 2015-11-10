@@ -13,8 +13,19 @@ int main(int argc, const char * argv[]) {
     /***************************************
      ***            QUESTION 1           ***
      ***************************************/
+    std::cout<<std::endl<<" ## QUESTION 1 ##"<<std::endl;
     std::cout << factorielleAlgorithmRecursive(3)<<std::endl;
     std::cout << factorielleAlgorithmIterative(3)<<std::endl;
+    
+    
+    /***************************************
+     ***            QUESTION 2           ***
+     ***************************************/
+    std::cout<<std::endl<<" ## QUESTION 2 ##"<<std::endl;
+    std::cout<< powerAlgorithmIterative(3, 8)<<std::endl;
+    std::cout<< powerAlgorithmRecursive(3, 8)<<std::endl<<std::endl;
+
+    
     
     /***************************************
      ***            QUESTION 6           ***
