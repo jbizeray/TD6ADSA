@@ -164,3 +164,96 @@ int min_TAB(std::vector<int> const & array)
     }
 }
 //Complexite O(n^2)
+
+
+
+
+/***************************************
+ ***            QUESTION 8           ***
+ ***************************************/
+int searchesIndexInOrderedTAB(int * array,int element, int minIndex, int maxIndex)
+{
+    if (minIndex>maxIndex) return 0;
+    int med = minIndex + (maxIndex-minIndex)/2;
+    if (element>*(array+med)) {
+        minIndex = med;
+        return searchesIndexInOrderedTAB(array, element, med+1, maxIndex);
+    }
+    else if (element<*(array+med)) {
+        maxIndex = med;
+        return searchesIndexInOrderedTAB(array, element, minIndex, med-1);
+    }
+    else return med;
+}
+//Complexité : O(log n)
+
+
+/***************************************
+ ***            QUESTION 9           ***
+ ***************************************/
+void fusion(int* array, int minIndex, int curseur, int maxIndex)
+{
+    
+    int dimArray1 =curseur - minIndex+1;
+    int dimArray2 =maxIndex - curseur;
+    
+    /* create temp arrays */
+    int array1[dimArray1];
+    int array2[dimArray2];
+    
+    /* Copy data to temp arrays L[] and R[] */
+    for(int i = 0; i < dimArray1; i++)
+    {
+        array1[i] = *(array+minIndex + i);
+    }
+    for(int j = 0; j < dimArray2; j++)
+    {
+        array2[j] = *(array+curseur + 1+ j);
+    }
+    
+    /* Merge the temp arrays back into arr[l..r]*/
+    int leftArrayIterator = 0;
+    int rightArrayIterator = 0;
+    int outArrayIterator = minIndex;
+    while (leftArrayIterator < dimArray1 && rightArrayIterator < dimArray2)
+    {
+        if (*(array1+leftArrayIterator) <= *(array2+rightArrayIterator))
+        {
+            *(array+outArrayIterator) = *(array1+leftArrayIterator);
+            leftArrayIterator++;
+        }
+        else
+        {
+            *(array+outArrayIterator) = *(array2+rightArrayIterator);
+            rightArrayIterator++;
+        }
+        outArrayIterator++;
+    }
+    
+    /* Copy the remaining elements of L[], if there are any */
+    while (leftArrayIterator < dimArray1)
+    {
+        *(array+outArrayIterator) = *(array1+leftArrayIterator);
+        leftArrayIterator++;
+        outArrayIterator++;
+    }
+    
+    /* Copy the remaining elements of R[], if there are any */
+    while (rightArrayIterator < dimArray2)
+    {
+        *(array+outArrayIterator) = *(array2+rightArrayIterator);
+        rightArrayIterator++;
+        outArrayIterator++;
+    }
+}
+
+void merge_sort(int* array, int minIndex, int maxIndex)
+{
+    if (minIndex<maxIndex)
+    {
+        int curseur = minIndex + (maxIndex-minIndex)/2;
+        merge_sort(array, *(array+minIndex), *(array+curseur));
+        merge_sort(array, *(array+curseur+1), *(array+maxIndex));
+        fusion(array, minIndex, curseur, maxIndex);
+    }
+}

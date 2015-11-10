@@ -44,4 +44,14 @@ int euclideAlgorithmIterative(int,int);
 void insertion_sort(int arr[], int length);
 
 
+/***************************************
+ ***            QUESTION 8           ***
+ ***************************************/
+int searchesIndexInOrderedTAB(int * ,int , int , int );
+
+/***************************************
+ ***            QUESTION 9           ***
+ ***************************************/
+void merge_sort(int* , int , int );
+
 #endif /* Algorithm_hpp */
